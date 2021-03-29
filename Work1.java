@@ -24,35 +24,36 @@ public class Work1 {
 			}
 			if (cal.equals("="))					// 종료 조건 (피연산자가 = 일경우 종료)
 				break ;
-			switch (cal)
+			try
 			{
-				case "+":	// 연산자가 + 일 경우
-					System.out.println("결과: " + (num1 + num2));
-					break ;
-				case "-":	// 연산자가 - 일 경우
-					System.out.println("결과: " + (num1 - num2));
-					break ;
-				case "*":	// 연산자가 * 일 경우
-					System.out.println("결과: " + (num1 * num2));
-					break ;
-				case "/":	// 연산자가 / 일 경우
-					try
-					{
-						System.out.println("결과: " + (num1 / num2));
+				switch (cal)
+				{
+					case "+":	// 연산자가 + 일 경우
+						System.out.println("결과: " + (num1 + num2));
 						break ;
-					}
-					catch(ArithmeticException e)	// 에외 처리 (정수 0으로 나눌 때)
-					{
-						System.out.println("0으로 나눌 수 없습니다. 다시 업력하세요");
-						scanner.nextLine();
+					case "-":	// 연산자가 - 일 경우
+						System.out.println("결과: " + (num1 - num2));
 						break ;
-					}
-				case "%":	// 연산자가 % 일 경우
-					System.out.println("결과: " + num1 % num2);
-					break ;
-				default:	// 정해진 연산자가 아닐 경우
-					System.out.println("연산자 + - * / % 중 하나를 사용하세요");
+					case "*":	// 연산자가 * 일 경우
+						System.out.println("결과: " + (num1 * num2));
+						break ;
+					case "/":	// 연산자가 / 일 경우
+							System.out.println("결과: " + (num1 / num2));
+							break ;
+					case "%":	// 연산자가 % 일 경우
+						System.out.println("결과: " + num1 % num2);
+						break ;
+					default:	// 정해진 연산자가 아닐 경우
+						System.out.println("연산자 + - * / % 중 하나를 사용하세요");
+				}
 			}
+			catch(ArithmeticException e)	// 에외 처리 (정수 0으로 나눌 때)
+			{
+				System.out.println("0으로 나눌 수 없습니다. 다시 업력하세요");
+				scanner.nextLine();
+				continue ;
+			}
+			
 		}
 		scanner.close();	// scanner 닫기
 	}
